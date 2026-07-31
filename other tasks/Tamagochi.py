@@ -6,6 +6,9 @@ health = 100
 sleep = 100
 Days = 0
 
+Base_Stat_Change = 5 
+High_Stat_Change = 10
+
 
 def status(hunger, happiness, health, sleep, Days):
     print("Hunger: ", hunger)
@@ -29,36 +32,50 @@ while health > 0 :
     if action == "status":
         status(hunger, happiness, health, sleep, Days)
     elif action == "essen":
-        hunger += 10
-        health += 5
-        happiness += 5
-        sleep -= 5
+        hunger += High_Stat_Change
+        health += Base_Stat_Change
+        happiness += Base_Stat_Change   
+        sleep -= Base_Stat_Change
     elif action == "spielen":
         happiness += 10
-        health -= 5
-        hunger -= 5
-        sleep -= 5
+        health -= Base_Stat_Change
+        hunger -= Base_Stat_Change
+        sleep -= Base_Stat_Change
     elif action == "schlafen":
-        sleep += 10
-        health += 5
-        hunger -= 5
-        happiness -= 5
+        sleep += High_Stat_Change
+        health += Base_Stat_Change
+        hunger -= Base_Stat_Change
+        happiness -= Base_Stat_Change
     elif action == "nichts":
-        hunger -= 5
-        happiness -= 5
-        health -= 5
-        sleep -= 5
+        hunger -= Base_Stat_Change
+        happiness -= Base_Stat_Change
+        health -= Base_Stat_Change
+        sleep -= Base_Stat_Change
     elif action == "beenden":
         print("Du hast das Spiel beendet.")
         health -= 100
+        print("Dies sind deine finalen Werte:")
+        status(hunger, happiness, health, sleep, Days)  
+    
         break
     elif health <= 0:
         print("Dein Tamagotchi ist gestorben.")
         break
-    elif health > 0 and action != "status":
+    if health > 0 and action != "status" and action != "beenden" and action != "":
         Days = Days + 1
         print("Tag: ", Days)
 
+    if hunger < 20:
+        print("Dein Tamagotchi ist hungrig.")
+
+    if happiness < 20:
+        print("Dein Tamagotchi ist unglücklich.")
+
+    if sleep < 20:
+        print("Dein Tamagotchi ist müde.")
+
+    if health < 20:
+        print("Dein Tamagotchi ist krank.")
         
 
 
