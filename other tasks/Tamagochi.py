@@ -1,13 +1,18 @@
 print("Das Tamagotchi Spiel")
 
-hunger = 100
-happiness = 100
-health = 100
-sleep = 100
-Days = 0
 
-Base_Stat_Change = 5 
-High_Stat_Change = 10
+Base_Stat_Change = 15 
+High_Stat_Change = 20
+Health_Stat_Change = 10
+
+Stat_Full = 100
+Stat_Empty = 0
+
+hunger = Stat_Full
+happiness = Stat_Full
+health = Stat_Full
+sleep = Stat_Full
+Days = Stat_Empty
 
 
 def status(hunger, happiness, health, sleep, Days):
@@ -58,9 +63,6 @@ while health > 0 :
         status(hunger, happiness, health, sleep, Days)  
     
         break
-    elif health <= 0:
-        print("Dein Tamagotchi ist gestorben.")
-        break
     if health > 0 and action != "status" and action != "beenden" and action != "":
         Days = Days + 1
         print("Tag: ", Days)
@@ -76,7 +78,36 @@ while health > 0 :
 
     if health < 20:
         print("Dein Tamagotchi ist krank.")
-        
+
+    if hunger > 100:
+        hunger = Stat_Full
+
+    if happiness > 100:
+        happiness = Stat_Full
+
+    if sleep > 100:
+        sleep = Stat_Full
+
+    if health > 100:
+        health = Stat_Full
+
+    if hunger <= 0 or happiness <= 0 or sleep <= 0:
+        health -= Health_Stat_Change
+        print("Dein Tamagotchi ist in einem schlechten Zustand. Gesundheit sinkt um 10.")
+
+    if hunger <= 0:
+        hunger = Stat_Empty
+
+    if happiness <= 0:
+        happiness = Stat_Empty
+
+    if sleep <= 0:
+        sleep = Stat_Empty
+
+    if health <= 0:
+        print("Dein Tamagotchi ist gestorben.")
+        print("Dies sind deine finalen Werte:")
+        status(hunger, happiness, health, sleep, Days)
 
 
     
