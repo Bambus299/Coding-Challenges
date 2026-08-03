@@ -15,7 +15,7 @@ def zeichne_geschenke_tabelle(geschenke_liste):
     
     col1_width = max_gift_len + 2
     col2_width = max_qty_len + 2
-       
+        
     horizontale_linie = "-" * (col1_width + 1 + col2_width) 
     
     tabelle = []

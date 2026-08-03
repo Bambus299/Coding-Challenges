@@ -39,6 +39,7 @@ def evaluiere_links_nach_rechts(ausdruck):
 def pruefe_rechnungen(liste_von_rechnungen):
     return [evaluiere_links_nach_rechts(r) for r in liste_von_rechnungen]
 
+
 calculations = [
     "1+1=2",   
     "5+8=10",  
