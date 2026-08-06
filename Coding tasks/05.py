@@ -17,7 +17,7 @@ def Geschenksliste(liste) :
 
     korrigierte_Liste.sort()
     return korrigierte_Liste
-Wunschliste = ["Stoff(reit)","au(ot)"]
+Wunschliste = ["S((ffti)ot)er', '(tuA)o', '((upp)P)e', 'Dr(ie)rad', 'Bau(ts)eine', 'B(la)l', '((tift)S)e', 'Bil(red)buch', 'Eis((nba)e)hn', 'Fa(rh)rad', 'Stap(tsle)eine', 'K(le(ch)su)tier', 'Bret(pst)iel', 'Kaufm(snna)laden', '(i(örsp)H)el', 'Baste((sch)l)ere"]
 result = Geschenksliste(Wunschliste)
 
 print(result)

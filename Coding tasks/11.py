@@ -1,3 +1,6 @@
+import req
+import post 
+
 start_value = 0
 aenderung_value = 1
 
@@ -19,14 +22,19 @@ def lichter_check(lichterketten):
         
         ergebnis.append(min(aenderungen_start_rot, aenderungen_start_gruen))
 
-    print(ergebnis)  
-    return ergebnis
-
-fairylights = [
-    ["RED", "RED", "RED"],
-    ["GREEN", "GREEN", "RED"],
-    ["GREEN", "RED", "GREEN"]  
-]
+    print(ergebnis) 
+    solution = post.post_data("11" ,ergebnis)
+    print(solution)
+    
+    
+   
+start_data = req.get_data("11")
+print(start_data)
+fairylights = start_data
 lichter_check(fairylights)
+
+
+
+
 
 

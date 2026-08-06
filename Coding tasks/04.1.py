@@ -16,17 +16,25 @@ for reindeer_data in start_data :
     rightorleft = moves.count("*")
     right = moves.count(">")
 
-    maxMoves = abs(left - right) + rightorleft
-
+    additionalMovesWithWildCard =  (rightorleft - abs(left - right)) / 2
+    maxMoves = additionalMovesWithWildCard
+    if(left > right) :
+        maxMoves  += left
+    
+    else :
+        maxMoves  += right
+    
+    
+    
+    #all_solution = int(all_solution)
     print(name)
     print(maxMoves)
 
-    all_solution += f"name: {name}\nmaxMoves: {maxMoves}\n"
-
-    
-
-print(all_solution)
+    all_solution += f"\{'name': '{name}','maxMoves': {int(maxMoves)}\}"
 
 
-solutionResult =  post.post_data("04", all_solution)
-print(solutionResult)
+print(json.dumps("[" + all_solution + "]" ))
+
+
+#solutionResult =  post.post_data("04", json.dumps(all_solution))
+#print(solutionResult)
