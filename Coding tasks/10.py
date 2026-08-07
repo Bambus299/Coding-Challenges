@@ -1,3 +1,6 @@
+
+
+
 def kosinus_annaeherung(grad):
     rad = grad * 3.14159265 / 180.0
     x2 = rad * rad

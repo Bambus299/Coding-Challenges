@@ -26,13 +26,11 @@ maxpayload = start_data["maxPayload"]
 
 parcel_count, payload = calculate_max_parcels(parcels, maxpayload)
 
-# 3. Das vom Server geforderte Antwort-Wörterbuch erstellen
 solution_dict = {
     "parcelCount": parcel_count,
     "payload": payload
 }
 print("Sende diese Lösung:", solution_dict)
 
-# 4. Lösung abschicken
 solutionResult = post.post_data("07", solution_dict)
 print("Server-Antwort:", solutionResult)
